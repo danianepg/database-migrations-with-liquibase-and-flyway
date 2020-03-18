@@ -45,6 +45,16 @@ In my humble opinion, both tools are great and they do the job. However, I decid
 
 I do not believe I will ever need the all functionalities that Liquibase offers and it was a little bit more painful to configure and run it than Flyway. Also, I always found XML files kind of messy/ugly. *sorry*
 
+For XML files, it is necessary to respect a pattern, worry about the mandatory tag  [databaseChangeLog](https://github.com/danianepg/demo-liquibase/blob/master/src/main/resources/db/changelog.xml) and its version. I got some errors with the changelog file because I have started with an older version of Liquibase. When I updated it, it was necessary to change the version on XML files.
+
+I know it is not a biggie but there is no need to do that with Flyway.
+
+Also, the configuration ([flywayConfig.properties](https://github.com/danianepg/demo-flyway/blob/master/src/main/resources/flywayConfig.properties)) felt simpler and cleaner than Liquibase’s ([liquibase.properties](https://github.com/danianepg/demo-liquibase/blob/master/src/main/resources/liquibase.properties)). Perhaps because there are not as many options as on Liquibase. I do not really need all the functionalities that Liquibase offers, so instead of helping they were just creating some noise.
+
+For instance, in the beginning, I was not sure why there were two similar properties:  _changeLogFile_  and  _outputChangeLogFile_. This concern did not exist with Flyway.
+
+After having it “installed”, the only thing to do with is to place scripts on the configured folder respecting a sequence for the migration files’ name. No additional worries.
+
 **Flyway** does the job straight away and it is much more intuitive than Liquibase. It is easier to simply write SQL in a way that everybody is already used to and thus, there is no learning curve.
 
 Flyway is the most “lightweight” and trouble-free solution to automatize the database migrations.
